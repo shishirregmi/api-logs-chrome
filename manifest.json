@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "API Request Capture",
+  "version": "1.0",
+  "description": "Captures full API request details",
+  "permissions": ["webRequest", "storage", "activeTab", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Requests</title>
+  <style>
+    body { 
+      width: 650px; 
+      max-height: 700px; 
+      overflow-y: auto; 
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+    .request {
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      padding: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .request-summary {
+      display: flex;
+      justify-content: space-between;
+    }
+    .copy-btn, .clear-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .clear-btn {
+      background-color: #f44336;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .filter-inputs {
+      display: flex;
+      gap: 10px;
+    }
+    .filter-inputs input {
+      flex-grow: 1;
+    }
+    #detailView {
+      display: none;
+    }
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="listView">
+    <div class="controls">
+      <div class="filter-inputs">
+        <input type="text" id="urlFilter" placeholder="Filter by URL">
+        <select id="methodFilter">
+          <option value="">All Methods</option>
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+        </select>
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option value="xmlhttprequest">XHR</option>
+          <option value="fetch">Fetch</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button id="clearBtn" class="clear-btn">Clear All Requests</button>
+    </div>
+    <h2>Captured API Requests</h2>
+    <div id="requestList"></div>
+  </div>
+  
+  <div id="detailView">
+    <button id="backToListBtn" class="copy-btn">Back to List</button>
+    <div id="requestDetails"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
